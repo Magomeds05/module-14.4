@@ -44,7 +44,7 @@ catalog_key = InlineKeyboardMarkup(
 @dp.message_handler(text='Купить')
 async def get_buying_list(message):
     for index, product in enumerate(get_all_products(1, 2, 3, 4)):
-        await message.answer(f'Название: Product{product} | Описание: описание {product} | Цена: {product}')
+        await message.answer(f'Название: Product{product} | Описание: описание {product} | Цена: {product * 100}')
         with open(f'cart_for_med/img_{product}.webp', 'rb') as photo:
             await message.answer_photo(photo)
     await message.answer('Выберите продукт для покупки:', reply_markup=catalog_key)
